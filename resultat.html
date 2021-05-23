@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Covid-19</title>
+    <link rel="stylesheet" href="resultat.css">
+  </head>
+  <header>
+    <h1>Diagnostic Covid-19 </h1><br>
+         <h3>Formulaire d’autoévaluation des symptômes de la COVID-19.
+          Le présent formulaire ne remplace pas une consultation médicale. Respectez toujours
+          les consignes que vous donne un professionnel de la santé.</h3>
+          <h2 id="wrd"></h2>
+  </header>
+  <body>
+   <script src="script.js"></script>
+   <script>
+   lw=window.localStorage
+   var r = lw.getItem("score");
+   var s = lw.getItem("age")
+   var o = lw.getItem("mc")
+   if ((parseInt(r)>=0) && (parseInt(r) <=7) && (parseInt(s)<65)){
+        wrd="Vous devirez aller bien, mais faites attention à vous, et n’oubliez pas de respecter les gestes barrières.";
+   }
+   if ((parseInt(r)>=0) && (parseInt(r) <=7) && (parseInt(s)<65)){
+        wrd ="Vous devirez aller bien, mais vous devriez rester confiné chez vous.";
+   }
+   if ((parseInt(r)>=8) && (parseInt(r) <=18) && (parseInt(o)==0)){
+        wrd="Vous avez des majeurs symptômes du COVID-19.Vous devriez vous confiner au plus vite, et faire un test de dépistage."
+   }
+   if((parseInt(r)>=8) && (parseInt(r) <=18) && (parseInt(o)>0)){
+        wrd="Précipitez-vous au centre COVID le plus proche pour êtrepris encharge.";
+   }
+   if(parseInt(r)>18){
+        wrd="Précipitez-vous au centre COVID le plus proche pour êtrepris encharge.";
+   }
+   document.getElementById("wrd").innerText = wrd;
+   
+   </script>
+</body>
+</html>
